@@ -212,14 +212,28 @@ body {
   opacity: 1;
 }
 .main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 160px;
+  height: 100%;
   object-fit: cover;
-  display: block;
+  transition: 0.3s ease;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos:hover img {
+  filter: brightness(60%);
 }
 .main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos .info {
   padding: 10px 12px;
   height: calc(330px - 160px);
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: 0.35s ease;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos:hover .info {
+  opacity: 1;
+  transform: translateY(0);
 }
 .main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos h3 {
   margin: 0 0 4px;
