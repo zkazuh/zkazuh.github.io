@@ -1,56 +1,622 @@
-//cores na pagina
-@btRoxo: #9810fa; // cor do botão roxo padrão
-@borda: #151731; // cor de borda para tudo, linha, card ou qualquer coisa...
+// ==========================
+// VARIÁVEIS DE COR
+// ==========================
+@btRoxo: #9810fa;
+@borda: #151731;
 @texto: #a2abba;
 
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     background-color: rgb(2, 6, 24);
     color: #ffffff;
+    margin: 0;
+    padding: 0;
 }
 
 .main-page {
+
+    // ==========================
+    // LAYOUT BASE
+    // ==========================
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    // ==========================
+    // HEADER COM BLUR
+    // ==========================
     #cabecalho {
         position: sticky;
         top: 0;
         left: 0;
         width: 100%;
-        background: rgba(2, 6, 24, 0.01);
+        z-index: 100;
 
+        background: rgba(2, 6, 24, 0.55);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid @borda;
+
+        .inner-cabecalho {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
+
+        .logo-cabecalho span {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        // NAVBAR
         .navbar {
+            display: flex;
+            gap: 8px;
+
             button {
                 border: none;
                 outline: none;
                 background: none;
                 color: @texto;
-                padding: 8px 8px;
+                padding: 8px 12px;
                 cursor: pointer;
+                border-radius: 6px;
+                font-size: 0.9rem;
+                transition: 0.25s ease;
 
-                &:hover{
-                   color: white;
+                &:hover {
+                    color: white;
+                    background: rgba(255, 255, 255, 0.08);
                 }
             }
 
             button.reservar-nav {
-                background-color: @btRoxo;
+                background: @btRoxo;
                 color: white;
+                padding: 8px 16px;
+                font-weight: 600;
                 border-radius: 6px;
 
-                &:hover{
-                    background-color: darken(@btRoxo, 10%);
-                    color: darken(white, 10%);
+                &:hover {
+                    background: darken(@btRoxo, 10%);
+                }
+            }
+        }
+    }
+
+    main {
+        padding-top: 20px;
+    }
+
+    // ==========================
+    // SECTION - INÍCIO
+    // ==========================
+    #inicio {
+        padding: 60px 0;
+        text-align: center;
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        p {
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+        }
+
+        .inicio-botao {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+
+            button {
+                background: @btRoxo;
+                border: none;
+                padding: 12px 18px;
+                border-radius: 8px;
+                color: white;
+                cursor: pointer;
+                transition: .2s;
+
+                &:hover {
+                    background: darken(@btRoxo, 10%);
+                }
+            }
+        }
+    }
+
+    // ==========================
+    // SECTION - CONSOLES
+    // ==========================
+    #consoles {
+        padding: 60px 0;
+
+        .nav-itens {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+
+            .card {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid @borda;
+                border-radius: 12px;
+                padding: 16px;
+                transition: .2s;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.07);
+                }
+
+                img {
+                    width: 100%;
+                    display: block;
+                    margin-bottom: 12px;
+                }
+
+                .card-header {
+                    margin-bottom: 12px;
+
+                    h4 {
+                        margin: 0;
+                    }
+
+                    span {
+                        font-size: 0.75rem;
+                        color: @texto;
+                    }
+
+                    .card-header-descricao {
+                        margin: 6px 0;
+                        color: lighten(@texto, 10%);
+                    }
+
+                    .card-header-descricao-valor {
+                        font-weight: bold;
+                        margin-top: 6px;
+                    }
+                }
+
+                .tags {
+                    margin-top: 10px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+
+                    span {
+                        background: rgba(255, 255, 255, 0.09);
+                        padding: 4px 6px;
+                        font-size: 0.7rem;
+                        border-radius: 4px;
+                        border: 1px solid @borda;
+                    }
+                }
+            }
+        }
+    }
+
+    // ==========================
+    // SECTION - CATÁLOGO DE JOGOS
+    // ==========================
+    #catalogo-jogos {
+        padding: 60px 0;
+
+        .container-catalogo-jogos-top {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-lista-jogos {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+
+            .nav-lista-jogos-botao {
+                padding: 8px 12px;
+                background: @borda;
+                border: none;
+                border-radius: 6px;
+                color: @texto;
+                cursor: pointer;
+                transition: .2s;
+
+                &:hover {
+                    background: darken(@borda, 10%);
+                    color: white;
                 }
             }
 
+            .active {
+                background: lighten(@borda, 8%);
+                color: white;
+                font-weight: 600;
+            }
         }
 
-        &::after {
-            content:"";
-            display: block;
+        .lista-jogos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+
+            .card-lista-jogos {
+                width: 100%;
+                height: 330px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid @borda;
+                border-radius: 12px;
+                overflow: hidden;
+                position: relative;
+
+                opacity: 0;
+                transform: translateY(15px);
+                transition: .35s ease;
+
+                &.fade {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(0,0,0,0.35);
+                    opacity: 0;
+                    transition: .3s ease;
+                }
+
+                &:hover::after {
+                    opacity: 1;
+                }
+
+                img {
+                    width: 100%;
+                    height: 160px;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                .info {
+                    padding: 10px 12px;
+                    height: calc(330px - 160px);
+                }
+
+                h3 {
+                    margin: 0 0 4px;
+                    font-size: 1rem;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    line-clamp: 2;
+                }
+
+                .tag {
+                    font-size: 0.8rem;
+                    color: @texto;
+                }
+
+                .desc {
+                    font-size: 0.8rem;
+                    margin-top: 6px;
+                    color: lighten(@texto, 15%);
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    line-clamp: 3;
+                }
+            }
+        }
+    }
+
+    // ==========================
+    // SECTION - PREÇOS
+    // ==========================
+    #precos {
+        padding: 60px 0;
+
+        table {
             width: 100%;
-            height: 1px;
-            background: @borda;
-            margin-top: 15px;
+            border-collapse: collapse;
+            margin-top: 20px;
+
+            th, td {
+                padding: 12px;
+                border: 1px solid @borda;
+                text-align: center;
+            }
+
+            th {
+                background: @borda;
+            }
+        }
+
+        // ==========================
+        // PACOTES ESPECIAIS (CORRIGIDO!)
+        // ==========================
+        .grid-pacotes {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 24px;
+            margin-top: 25px;
+            flex-wrap: nowrap; // nunca quebra
+        }
+
+        .pacote-card {
+            flex: 1;
+            max-width: 350px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid @borda;
+            border-radius: 14px;
+            padding: 22px 26px;
+            transition: .2s ease;
+            display: flex;
+            flex-direction: column;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.06);
+            }
+
+            h4 {
+                margin: 0 0 4px;
+                font-size: 1.2rem;
+            }
+
+            .pacote-sub {
+                color: @texto;
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+
+            .pacote-preco {
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: @btRoxo;
+                margin-bottom: 16px;
+            }
+
+            .pacote-lista {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+
+                li {
+                    margin: 8px 0;
+                    padding-left: 20px;
+                    position: relative;
+
+                    &::before {
+                        content: "✔";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        color: @btRoxo;
+                    }
+                }
+            }
+        }
+
+        .pacote-pagamento {
+            width: 100%;
+            display: flex;                  // centraliza tudo
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 25px;
+
+            font-size: 0.9rem;
+            color: lighten(@texto, 5%);
+            text-align: center;
+
+            opacity: 0.85;
+            transition: opacity .25s ease;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            .icon-pagamento {
+                font-size: 1.2rem;
+                display: inline-block;
+
+                // animação tipo "pulse"
+                animation: pagamentoPulse .9s ease-in-out infinite alternate;
+            }
+        }
+
+        /* animação no ícone */
+        @keyframes pagamentoPulse {
+            from { transform: scale(0.95); opacity: 0.85; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+    }
+
+    // ==========================
+    // SECTION - AGENDAR
+    // ==========================
+    #agendar {
+        padding: 60px 0;
+
+        .top-agendar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-agendar {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid @borda;
+            max-width: 500px;
+            margin: 0 auto;
+
+            .top-card-agendar {
+                margin-bottom: 12px;
+            }
         }
     }
 }
+
+// ==========================
+// FOOTER FULL WIDTH
+// ==========================
+
+/* ================================
+   FOOTER FULL WIDTH
+================================ */
+.footer-full {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid @borda;
+    padding: 40px 0 20px 0;
+    margin-top: 60px;
+
+    .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 16px;
+        text-align: center;
+    }
+
+    .inner-contato {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    /* ============================
+       FORMULÁRIO
+    ============================ */
+    .form-contato {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid @borda;
+        width: 100%;
+        max-width: 380px;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            /* INPUT */
+            input {
+                width: 100%;
+                height: 45px;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.25);
+                border: 1px solid @borda;
+                border-radius: 8px;
+                color: white;
+                font-size: 0.9rem;
+                box-sizing: border-box;
+
+                &:focus {
+                    outline: none;
+                    border-color: @btRoxo;
+                }
+            }
+
+            /* TEXTAREA */
+            textarea {
+                width: 100%;
+                height: 180px;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.25);
+                border: 1px solid @borda;
+                border-radius: 8px;
+                color: white;
+                font-size: 0.9rem;
+                box-sizing: border-box;
+                resize: none; // evita expandir pro lado
+
+                &:focus {
+                    outline: none;
+                    border-color: @btRoxo;
+                }
+            }
+
+            /* BOTÃO */
+            button {
+                background: @btRoxo;
+                border: none;
+                padding: 10px 0;
+                border-radius: 8px;
+                color: white;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: .2s;
+
+                &:hover {
+                    background: darken(@btRoxo, 10%);
+                }
+            }
+        }
+    }
+
+    /* ============================
+       ICONES + TEXTO DE CONTATO
+    ============================ */
+    .card-contato {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 300px;
+        text-align: left;
+
+        .contato-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            i {
+                font-size: 1.5rem;
+                color: @btRoxo;
+            }
+
+            p {
+                margin: 0;
+                font-size: 0.95rem;
+                color: #fff;
+            }
+        }
+    }
+
+    /* COPYRIGHT */
+    .direitos-autorais {
+        margin-top: 40px;
+        font-size: 0.85rem;
+        color: @texto;
+    }
+}
+
+/* ============================
+   RESPONSIVO
+============================ */
+@media (max-width: 600px) {
+    .footer-full .inner-contato {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-full .card-contato {
+        text-align: center;
+
+        .contato-item {
+            justify-content: center;
+        }
+    }
+}
+

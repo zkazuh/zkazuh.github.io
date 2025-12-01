@@ -2,39 +2,497 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #020618;
   color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+.main-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 .main-page #cabecalho {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(2, 6, 24, 0.01);
+  z-index: 100;
+  background: rgba(2, 6, 24, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #151731;
+}
+.main-page #cabecalho .inner-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+.main-page #cabecalho .logo-cabecalho span {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+}
+.main-page #cabecalho .navbar {
+  display: flex;
+  gap: 8px;
 }
 .main-page #cabecalho .navbar button {
   border: none;
   outline: none;
   background: none;
   color: #a2abba;
-  padding: 8px 8px;
+  padding: 8px 12px;
   cursor: pointer;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: 0.25s ease;
 }
 .main-page #cabecalho .navbar button:hover {
   color: white;
+  background: rgba(255, 255, 255, 0.08);
 }
 .main-page #cabecalho .navbar button.reservar-nav {
-  background-color: #9810fa;
+  background: #9810fa;
   color: white;
+  padding: 8px 16px;
+  font-weight: 600;
   border-radius: 6px;
 }
 .main-page #cabecalho .navbar button.reservar-nav:hover {
-  background-color: #7c04d3;
-  color: #e6e6e6;
+  background: #7c04d3;
 }
-.main-page #cabecalho::after {
-  content: "";
-  display: block;
+.main-page main {
+  padding-top: 20px;
+}
+.main-page #inicio {
+  padding: 60px 0;
+  text-align: center;
+}
+.main-page #inicio h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+.main-page #inicio p {
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+.main-page #inicio .inicio-botao {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.main-page #inicio .inicio-botao button {
+  background: #9810fa;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.main-page #inicio .inicio-botao button:hover {
+  background: #7c04d3;
+}
+.main-page #consoles {
+  padding: 60px 0;
+}
+.main-page #consoles .nav-itens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+.main-page #consoles .nav-itens .card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #151731;
+  border-radius: 12px;
+  padding: 16px;
+  transition: 0.2s;
+}
+.main-page #consoles .nav-itens .card:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.main-page #consoles .nav-itens .card img {
   width: 100%;
-  height: 1px;
+  display: block;
+  margin-bottom: 12px;
+}
+.main-page #consoles .nav-itens .card .card-header {
+  margin-bottom: 12px;
+}
+.main-page #consoles .nav-itens .card .card-header h4 {
+  margin: 0;
+}
+.main-page #consoles .nav-itens .card .card-header span {
+  font-size: 0.75rem;
+  color: #a2abba;
+}
+.main-page #consoles .nav-itens .card .card-header .card-header-descricao {
+  margin: 6px 0;
+  color: #bfc5d0;
+}
+.main-page #consoles .nav-itens .card .card-header .card-header-descricao-valor {
+  font-weight: bold;
+  margin-top: 6px;
+}
+.main-page #consoles .nav-itens .card .tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.main-page #consoles .nav-itens .card .tags span {
+  background: rgba(255, 255, 255, 0.09);
+  padding: 4px 6px;
+  font-size: 0.7rem;
+  border-radius: 4px;
+  border: 1px solid #151731;
+}
+.main-page #catalogo-jogos {
+  padding: 60px 0;
+}
+.main-page #catalogo-jogos .container-catalogo-jogos-top {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.main-page #catalogo-jogos .nav-lista-jogos {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.main-page #catalogo-jogos .nav-lista-jogos .nav-lista-jogos-botao {
+  padding: 8px 12px;
   background: #151731;
-  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  color: #a2abba;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.main-page #catalogo-jogos .nav-lista-jogos .nav-lista-jogos-botao:hover {
+  background: #06060d;
+  color: white;
+}
+.main-page #catalogo-jogos .nav-lista-jogos .active {
+  background: #21244e;
+  color: white;
+  font-weight: 600;
+}
+.main-page #catalogo-jogos .lista-jogos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos {
+  width: 100%;
+  height: 330px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #151731;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: 0.35s ease;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos.fade {
+  opacity: 1;
+  transform: translateY(0);
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos:hover::after {
+  opacity: 1;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos .info {
+  padding: 10px 12px;
+  height: calc(330px - 160px);
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos .tag {
+  font-size: 0.8rem;
+  color: #a2abba;
+}
+.main-page #catalogo-jogos .lista-jogos-grid .card-lista-jogos .desc {
+  font-size: 0.8rem;
+  margin-top: 6px;
+  color: #ced3db;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+}
+.main-page #precos {
+  padding: 60px 0;
+  /* animação no ícone */
+}
+.main-page #precos table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.main-page #precos table th,
+.main-page #precos table td {
+  padding: 12px;
+  border: 1px solid #151731;
+  text-align: center;
+}
+.main-page #precos table th {
+  background: #151731;
+}
+.main-page #precos .grid-pacotes {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 25px;
+  flex-wrap: nowrap;
+}
+.main-page #precos .pacote-card {
+  flex: 1;
+  max-width: 350px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #151731;
+  border-radius: 14px;
+  padding: 22px 26px;
+  transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.main-page #precos .pacote-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.main-page #precos .pacote-card h4 {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+}
+.main-page #precos .pacote-card .pacote-sub {
+  color: #a2abba;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+.main-page #precos .pacote-card .pacote-preco {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #9810fa;
+  margin-bottom: 16px;
+}
+.main-page #precos .pacote-card .pacote-lista {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.main-page #precos .pacote-card .pacote-lista li {
+  margin: 8px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.main-page #precos .pacote-card .pacote-lista li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #9810fa;
+}
+.main-page #precos .pacote-pagamento {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #b1b8c5;
+  text-align: center;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+.main-page #precos .pacote-pagamento:hover {
+  opacity: 1;
+}
+.main-page #precos .pacote-pagamento .icon-pagamento {
+  font-size: 1.2rem;
+  display: inline-block;
+  animation: pagamentoPulse 0.9s ease-in-out infinite alternate;
+}
+@keyframes pagamentoPulse {
+  from {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.main-page #agendar {
+  padding: 60px 0;
+}
+.main-page #agendar .top-agendar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.main-page #agendar .card-agendar {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #151731;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.main-page #agendar .card-agendar .top-card-agendar {
+  margin-bottom: 12px;
+}
+/* ================================
+   FOOTER FULL WIDTH
+================================ */
+.footer-full {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid #151731;
+  padding: 40px 0 20px 0;
+  margin-top: 60px;
+  /* ============================
+       FORMULÁRIO
+    ============================ */
+  /* ============================
+       ICONES + TEXTO DE CONTATO
+    ============================ */
+  /* COPYRIGHT */
+}
+.footer-full .footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
+}
+.footer-full .inner-contato {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.footer-full .form-contato {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #151731;
+  width: 100%;
+  max-width: 380px;
+}
+.footer-full .form-contato form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* INPUT */
+  /* TEXTAREA */
+  /* BOTÃO */
+}
+.footer-full .form-contato form input {
+  width: 100%;
+  height: 45px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid #151731;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+.footer-full .form-contato form input:focus {
+  outline: none;
+  border-color: #9810fa;
+}
+.footer-full .form-contato form textarea {
+  width: 100%;
+  height: 180px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid #151731;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  resize: none;
+}
+.footer-full .form-contato form textarea:focus {
+  outline: none;
+  border-color: #9810fa;
+}
+.footer-full .form-contato form button {
+  background: #9810fa;
+  border: none;
+  padding: 10px 0;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.footer-full .form-contato form button:hover {
+  background: #7c04d3;
+}
+.footer-full .card-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+  text-align: left;
+}
+.footer-full .card-contato .contato-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-full .card-contato .contato-item i {
+  font-size: 1.5rem;
+  color: #9810fa;
+}
+.footer-full .card-contato .contato-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #fff;
+}
+.footer-full .direitos-autorais {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #a2abba;
+}
+/* ============================
+   RESPONSIVO
+============================ */
+@media (max-width: 600px) {
+  .footer-full .inner-contato {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-full .card-contato {
+    text-align: center;
+  }
+  .footer-full .card-contato .contato-item {
+    justify-content: center;
+  }
 }
